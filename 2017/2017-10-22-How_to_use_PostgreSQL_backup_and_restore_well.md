@@ -1,7 +1,7 @@
 # 如何用好PostgreSQL的备份与恢复？
 
 ### 作者
-赵成
+[赵成](https://github.com/ChengXiaoZ)
 
 ### 日期               
 2017-10-22
