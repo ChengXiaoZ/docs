@@ -33,6 +33,7 @@ PostgreSQL备份与恢复操作涉及的参数和相关文件较多，内部逻�
 
 ![物理备份与恢复](../media/2017-10-22-How-to-use-PostgreSQL-backup-and-restore-well-1.png)
 
+<div align=center><img width="80%" height="80%" src="https://raw.githubusercontent.com/ChengXiaoZ/docs/master/media/2017-10-22-How-to-use-PostgreSQL-backup-and-restore-well-1.png"/></div>
 
 在高可用需求中，当单台实例发生故障，需要快速提供备用实例。备份基线数据+日志文件的方式无法满足时间要求。通常采用主备（master/slave）方案，master与slave通过日志流复制进行同步，slave可以提供只读数据访问，当master发送故障后，直接将应用请求转发到slave。
 
