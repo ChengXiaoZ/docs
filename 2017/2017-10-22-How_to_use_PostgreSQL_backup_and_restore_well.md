@@ -35,7 +35,6 @@ PostgreSQL备份与恢复操作涉及的参数和相关文件较多，内部逻�
 
 在高可用需求中，当单台实例发生故障，需要快速提供备用实例。备份基线数据+日志文件的方式无法满足时间要求。通常采用主备（master/slave）方案，master与slave通过日志流复制进行同步，slave可以提供只读数据访问，当master发送故障后，直接将应用请求转发到slave。
 
-![流复制与日志切换](../media/2017-10-22-How-to-use-PostgreSQL-backup-and-restore-well-2.png)
 <div align=center><img width="80%" height="80%" src="https://raw.githubusercontent.com/ChengXiaoZ/docs/master/media/2017-10-22-How-to-use-PostgreSQL-backup-and-restore-well-2.png"/></div>
 
 在高可用方案中，需要支持介质故障恢复，实时故障切换，误操作数据恢复，查看历史数据等功能。流复制技术和物理备份与恢复的结合，可以满足数据库高可用的基本要求。
@@ -67,7 +66,6 @@ Xlog文件名由三部分组成，格式为：时间线+segment序号高位+segm
 根据64M大小日志文件名格式，可计算出lsn的segment序号高32位为0x0，segment序号低位为0x7， 块内序号为0x90，xlog文件名为000000010000000000000007
 使用pg_xlogfile_name_offset()可以查询lsn对应的文件名文件内偏移，与上述计算一致。
 
-![pg_current_xlog_location](../media/2017-10-22-How-to-use-PostgreSQL-backup-and-restore-well-3.png)
 <div align=center><img width="80%" height="80%" src="https://raw.githubusercontent.com/ChengXiaoZ/docs/master/media/2017-10-22-How-to-use-PostgreSQL-backup-and-restore-well-3.png"/></div>
 
 ### 2.checkpoint与control文件
@@ -206,7 +204,7 @@ pg_rman支持的命令包括
 # 三、PostgreSQL数据库恢复分类
 根据配置文件和参数的不同，PostgreSQL恢复可以做以下分类。 
 
-![恢复分类](../media/2017-10-22-How-to-use-PostgreSQL-backup-and-restore-well-4.png)
+<div align=center><img width="80%" height="80%" src="https://raw.githubusercontent.com/ChengXiaoZ/docs/master/media/2017-10-22-How-to-use-PostgreSQL-backup-and-restore-well-4.png"/></div>
 
 Crash recovery是PostgreSQL发生故障后自动进行的恢复处理，archive recovery是DBA通过配置recovery.conf文件，PostgreSQL启动后进入的恢复流程。
 
